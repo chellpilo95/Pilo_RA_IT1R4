@@ -1,6 +1,6 @@
-Grade = 100
+score = 100
 
-if Grade >= 75:
+if score >= 75:
     print("Passed")
 
 else:
