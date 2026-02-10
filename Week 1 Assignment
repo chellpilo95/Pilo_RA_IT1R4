@@ -1,9 +1,9 @@
 score = 100
 
 if score >= 75:
-    print("Passed")
+    print("\nPassed")
 
 else:
-    print("Failed")
+    print("\nFailed")
 
 # This program checks if the grade is passing or failing.
