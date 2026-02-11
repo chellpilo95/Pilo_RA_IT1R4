@@ -1,5 +1,5 @@
 while True:
-    password = input ("Enter Password: ")
+    password = input ("\nEnter Password: ")
 
     has_letter = False
     has_number = False
@@ -18,6 +18,6 @@ while True:
         break
 
     else:
-        print("------------------------------")
+        print("\n------------------------------")
         print("Invalid Password. Try Again.")
         print("------------------------------")
