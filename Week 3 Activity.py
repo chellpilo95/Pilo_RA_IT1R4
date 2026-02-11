@@ -3,7 +3,7 @@ user123 = "Jeo"
 user123 = input ("Enter Password: ")
 
 if user123 == "Jeo":
-    print("-----Logged In-----")
+    print("-----LOGGED IN-----")
 
 else:
-    print("-----Access Denied-----")
+    print("-----ACCESS DENIED-----")
