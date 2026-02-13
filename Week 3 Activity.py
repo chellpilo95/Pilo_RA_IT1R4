@@ -1,8 +1,8 @@
-user123 = "Jeo"
+This_is_pass = "Jeo"
 
-user123 = input ("Enter Password: ")
+This_is_pass = input ("Enter Password: ")
 
-if user123 == "Jeo":
+if This_is_pass == "Jeo":
     print("-----LOGGED IN-----")
 
 else:
