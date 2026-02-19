@@ -1,14 +1,14 @@
-# temp1 = 100
-# celsius1 = (temp1 - 32) * 5/9
-# print(celsius1)
+temp1 = 100
+celsius1 = (temp1 - 32) * 5/9
+print(celsius1)
 
-# temp2 = 88
-# celsius2 = (temp2 - 32) * 5/9
-# print(celsius2)
+temp2 = 88
+celsius2 = (temp2 - 32) * 5/9
+print(celsius2)
 
-# temp3 = 85
-# celsius3 = (temp3 - 32) * 5/9
-# print(celsius3)
+temp3 = 85
+celsius3 = (temp3 - 32) * 5/9
+print(celsius3)
 
 #This part will use a FUNCTION
 
@@ -95,10 +95,10 @@
 
 #GLOBAL VARIABLE
 
-x = 500
-y = 200
+# x = 500
+# y = 200
 
-def myfunc():
-    print(x, y)
+# def myfunc():
+#     print(x, y)
 
-myfunc()
+# myfunc()
