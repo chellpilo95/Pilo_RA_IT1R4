@@ -16,8 +16,6 @@ def closest(A, B, C):
     elif diffC < diffA and diffC < diffB:
         print(f"\nThe closest number to {x} is the third number with a value of {C}")
 
-    else:
-        print(f"\nTwo numbers are equally closest to {x}")
 
 
 A = int(input("Enter first number: "))
