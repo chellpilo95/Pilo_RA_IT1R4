@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Highlight the Word Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  h1 { color: #333; }
+  #instruction {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  #target-word {
+    font-weight: bold;
+    color: #d32f2f;
+  }
+  #sentence-box {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    line-height: 2;
+    font-size: 1.3rem;
+    max-width: 600px;
+    text-align: justify;
+  }
+  /* each word becomes clickable */
+  .word {
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .word:hover {
+    background: #e0e0e0;
+  }
+  /* feedback styles */
+  .correct {
+    background: #4caf50 !important;   /* green */
+    color: white;
+  }
+  .wrong {
+    background: #f44336 !important;   /* red */
+    color: white;
+  }
+
+  #message {
+    margin-top: 15px;
+    font-weight: bold;
+    height: 1.5em;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Highlight the Word</h1>
+
+<p id="instruction">Find and click the word: <span id="target-word"></span></p>
+
+<div id="sentence-box"></div>
+
+<p id="message"></p>
+
+<button onclick="initGame()">Next Round</button>
+
+<script>
+  // Sample sentences – you can add more
+  const sentences = [
+    "The quick brown fox jumps over the lazy dog.",
+    "A journey of a thousand miles begins with a single step.",
+    "To be or not to be, that is the question.",
+    "All that glitters is not gold.",
+    "Practice makes perfect."
+  ];
+
+  let currentTarget = "";
+
+  function initGame() {
+    // 1. Pick a random sentence
+    const sentence = sentences[Math.floor(Math.random() * sentences.length)];
+    
+    // 2. Split into words (keep punctuation attached)
+    const words = sentence.split(/\s+/);   // split on whitespace
+
+    // 3. Choose a random word to be the target (ignore punctuation for simplicity)
+    //    we strip trailing punctuation for the target check
+    const cleanWords = words.map(w => w.replace(/[^\w]/g, ''));
+    let targetIdx = Math.floor(Math.random() * cleanWords.length);
+    currentTarget = cleanWords[targetIdx];
+
+    // 4. Render the sentence with each word wrapped in a <span>
+    const container = document.getElementById('sentence-box');
+    container.innerHTML = '';   // clear previous
+
+    words.forEach((wordText, idx) => {
+      const span = document.createElement('span');
+      span.textContent = wordText;
+      span.className = 'word';
+      // store the cleaned version for comparison
+      span.dataset.clean = wordText.replace(/[^\w]/g, '');
+      span.onclick = () => checkWord(span);
+      container.appendChild(span);
+      // add a space after each word (except the last)
+      if (idx < words.length - 1) {
+        container.appendChild(document.createTextNode(' '));
+      }
+    });
+
+    // 5. Show the target word to the player
+    document.getElementById('target-word').textContent = currentTarget;
+
+    // 6. Clear feedback
+    document.getElementById('message').textContent = '';
+  }
+
+  function checkWord(el) {
+    // If already solved, ignore further clicks
+    if (el.classList.contains('correct')) return;
+
+    const clicked = el.dataset.clean;
+
+    if (clicked === currentTarget) {
+      // correct!
+      el.classList.add('correct');
+      document.getElementById('message').style.color = 'green';
+      document.getElementById('message').textContent = 'Correct! 🎉';
+    } else {
+      // wrong – give visual feedback but let them try again
+      el.classList.add('wrong');
+      setTimeout(() => el.classList.remove('wrong'), 400); // brief flash
+      document.getElementById('message').style.color = 'red';
+      document.getElementById('message').textContent = 'Try again!';
+    }
+  }
+
+  // Start the first round when page loads
+  initGame();
+</script>
+
+</body>
+</html>
