@@ -1,5 +1,4 @@
-#make a progroam that can add, update, delete and list users in a list. The program should continue to run until the user chooses to exit.
-#use a list to store user and a while true loop to keep the program running until the user chooses to exit. Use if-elif-else statements to handle the different options for listing, adding, updating, and deleting users.
+#User List Program
 
 user_list = []
 
