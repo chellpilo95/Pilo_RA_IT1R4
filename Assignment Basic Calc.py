@@ -8,5 +8,4 @@ if operation == "+": print("\nAnswer:", Fnum1 + Fnum2)
 elif operation == "-": print("\nAnswer:", Fnum1 - Fnum2)
 elif operation == "*": print("\nAnswer:", Fnum1 * Fnum2)
 elif operation == "/": print("\nAnswer:", Fnum1 / Fnum2)
-else: 5
-print("\nInvalid operation. Please choose from +, -, *, or /.")
+else: print("\nInvalid operation. Please choose from +, -, *, or /.")
