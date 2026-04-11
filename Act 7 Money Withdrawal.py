@@ -1,4 +1,4 @@
-balance = 10500  
+Amt_balance = 10500  
 
 def menu():   
     print("\n| Money Withdrawal System |\n")
