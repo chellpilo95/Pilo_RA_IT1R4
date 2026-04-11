@@ -11,13 +11,13 @@ def withdraw(balance):
         if amount <= 0:
             print("\nAmount must be greater than 0.")
         elif amount > balance:
-            print("Insufficient funds!")
+            print("\nInsufficient funds!")
             
             while True:
                 option = input("\nOptions:\n1. Re-enter amount\n2. Check balance\n3. Exit\n\nEnter your choice: ")
                 if option == "1": return balance
-                elif option == "2": print(f"\nCurrent balance: {balance}")
-                elif option == "3": exit("Exiting system...")
+                elif option == "2": print(f"\nYour Current balance is {balance}.")
+                elif option == "3": exit("\nExiting system...")
                 else: print("\nInvalid option! Please try again.")
         else:
             balance -= amount
