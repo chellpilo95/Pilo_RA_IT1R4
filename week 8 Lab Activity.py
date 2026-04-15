@@ -28,7 +28,7 @@ while True:
             with open("message.txt", "r") as f:
                 messages = f.readlines()
                 if messages:
-                    print("\nMessages:\n")
+                    print("\n--- Messages ---\n")
                     for msg in messages:
                         print(msg.strip())
                 else:
